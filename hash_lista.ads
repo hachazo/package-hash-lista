@@ -1,4 +1,4 @@
-with vector,listaordenada;
+with vector,lista;
 generic
    type Tipoelemento is private;
    type indice is (<>);
@@ -6,16 +6,18 @@ generic
    with function "=" (X,Y : in Tipoelemento) return Boolean;
    with function ">" (X,Y: in Tipoelemento) return Boolean;
    with function "<" (X,Y: in Tipoelemento) return Boolean;
-   with function Hash (Elemento: in tipoelemento) return indice;
+   with function Hash (Elemento: in tipoelemento) return integer;
 
    package Hash_Lista is
       
       type Thash is private;
       procedure Ins_Tabla(Vec: in out Thash; Elemento: in Tipoelemento);
+      function Buscar(Vec: in Thash; Elemen: in Tipoelemento) return Boolean;
+      
       
       private
       
-      package Listaordenadainc is new Listaordenada(Tipoelemento,"=","<",">");
+      package Listaordenadainc is new Lista(Tipoelemento);
       use Listaordenadainc;
       
       procedure put_vec(X: in tipolista);

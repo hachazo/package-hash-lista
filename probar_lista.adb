@@ -19,9 +19,9 @@ procedure Probar_Lista is
       return X < Y;
    end "<";
    
-   function Hash (X: in integer) return Indice is
+   function Hash (X: in integer) return integer is
    begin
-      return X rem 9;
+      return X mod 9;
    end Hash;
    package Hashinc is new hash_lista(Integer,Indice,"=", ">", "<",Hash);
    use Hashinc;
@@ -31,9 +31,11 @@ procedure Probar_Lista is
     begin
    
    -- inserta los elementos
-      for I in 0..8 loop 
+      for I in 1..9 loop 
          get(Ingresar);
          ins_tabla(tabla,ingresar);
        end loop;
-       
+       if Buscar(Tabla,11) then
+          put_line("fGFGHFH");
+          end if;
    end probar_lista;
